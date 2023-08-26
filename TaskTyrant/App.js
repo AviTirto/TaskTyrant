@@ -5,18 +5,23 @@ import TaskForm from './components/TaskForm'
 
 export default function App() {
   const [tasks, setTasks] = useState([])
-  const [toggleTaskForm, setToggleTaskForm] = useState(false)
+  const [openTF, setOpenTF] = useState(false)
+  
+  function toggleTF(){
+    setOpenTF(true)
+  }
 
   function addNewTask(newTask){
     setTasks(prevTasks => [...prevTasks, newTask])
+    setOpenTF(false)
   }
   return (
     <View style={styles.appContainer}>
       <Text>TaskTyrant</Text>
-      <Button title='+' style={styles.addButton}/>
+      <Button title='+' style={styles.addButton} onPress={toggleTF}/>
       <StatusBar style="auto" />
-      {tasks.map(task => <Text>{task}</Text>)}
-      {toggleTaskForm && <TaskForm onSubmit={addNewTask}/>}
+      {tasks.map(task => <Text key={task}>{task}</Text>)}
+      {openTF && <TaskForm onSubmit={addNewTask}/>}
     </View>
   );
 }
