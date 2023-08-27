@@ -1,5 +1,5 @@
 import { Button, Text, View, TextInput } from 'react-native';
-import TaskFormStyles from './TaskFormStyles'
+import styles from './TaskFormStyles'
 import { useState } from 'react'
 
 const TaskForm = (props) => {

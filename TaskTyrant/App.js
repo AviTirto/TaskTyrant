@@ -2,7 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import { useState } from 'react';
 import TaskForm from './components/TaskForm/TaskForm';
-import BouncyCheckbox from "react-native-bouncy-checkbox";
+import Task from './components/Task/Task'
+
 
 export default function App() {
   const [tasks, setTasks] = useState([]);
@@ -16,12 +17,17 @@ export default function App() {
     setTasks(prevTasks => [...prevTasks, newTask]);
     setOpenTF(false);
   }
+
+  function removeTask(index){
+    setTasks(prevTasks => [...prevTasks].splice(index, 1))
+  }
+
   return (
     <View style={styles.appContainer}>
       <Text>TaskTyrant</Text>
       <Button title='+' style={styles.addButton} onPress={toggleTF}/>
       <StatusBar style="auto" />
-      {tasks.map(task => <Text key={task}>{task}</Text>)}
+      {tasks.map((task, index) => <Task key={index} title={task} onCheck={removeTask}/>)}
       {openTF && <TaskForm onSubmit={addNewTask}/>}
     </View>
   );
