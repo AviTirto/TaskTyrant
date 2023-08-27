@@ -1,19 +1,20 @@
 import { StatusBar } from 'expo-status-bar';
 import { Button, StyleSheet, Text, View } from 'react-native';
-import { useState } from 'react'
-import TaskForm from './components/TaskForm'
+import { useState } from 'react';
+import TaskForm from './components/TaskForm/TaskForm';
+import BouncyCheckbox from "react-native-bouncy-checkbox";
 
 export default function App() {
-  const [tasks, setTasks] = useState([])
-  const [openTF, setOpenTF] = useState(false)
+  const [tasks, setTasks] = useState([]);
+  const [openTF, setOpenTF] = useState(false);
   
   function toggleTF(){
-    setOpenTF(true)
+    setOpenTF(true);
   }
 
   function addNewTask(newTask){
-    setTasks(prevTasks => [...prevTasks, newTask])
-    setOpenTF(false)
+    setTasks(prevTasks => [...prevTasks, newTask]);
+    setOpenTF(false);
   }
   return (
     <View style={styles.appContainer}>
