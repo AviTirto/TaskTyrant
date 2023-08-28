@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, View, FlatList } from 'react-native';
 import { useState } from 'react';
 import TaskForm from './components/TaskForm/TaskForm';
 import Task from './components/Task/Task'
@@ -14,7 +14,12 @@ export default function App() {
   }
 
   function addNewTask(newTask){
-    setTasks(prevTasks => [...prevTasks, newTask]);
+    setTasks(prevTasks => {
+      return(
+        [...prevTasks,
+        {text: newTask, key: prevTasks.length}]
+      );
+    });
     setOpenTF(false);
   }
 
@@ -27,7 +32,16 @@ export default function App() {
       <Text>TaskTyrant</Text>
       <Button title='+' style={styles.addButton} onPress={toggleTF}/>
       <StatusBar style="auto" />
-      {tasks.map((task, index) => <Task key={index} title={task} onCheck={removeTask}/>)}
+      <FlatList 
+        data={tasks}
+        renderItem={
+          (itemData) => {
+            return (
+              <Task key={itemData.item.key} title={itemData.item.text} onCheck={removeTask}/>
+            )
+          }
+        }
+      />
       {openTF && <TaskForm onSubmit={addNewTask}/>}
     </View>
   );
