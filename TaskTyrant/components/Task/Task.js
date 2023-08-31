@@ -3,10 +3,15 @@ import BouncyCheckbox from "react-native-bouncy-checkbox";
 import styles from './TaskStyles'
 
 Task = (props) => {
+
+    function handleClick(){
+        props.onCheck(props.title)
+    }
+
     return (
         <View style={styles.taskContainer}>
-            <Text>{props.title}</Text>
-            <BouncyCheckbox />
+            <Text style={styles.title}>{props.title}</Text>
+            <BouncyCheckbox onPress={handleClick}/>
         </View>
     )
 }

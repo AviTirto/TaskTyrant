@@ -23,8 +23,13 @@ export default function App() {
     setOpenTF(false);
   }
 
-  function removeTask(index){
-    setTasks(prevTasks => [...prevTasks].splice(index, 1))
+  function completeTask(taskName){
+    setTasks(prevTasks => {
+        return prevTasks.filter((title) => {
+          return title.text != taskName
+        })
+      }
+    )
   }
 
   return (
@@ -32,12 +37,12 @@ export default function App() {
       <Text>TaskTyrant</Text>
       <Button title='+' style={styles.addButton} onPress={toggleTF}/>
       <StatusBar style="auto" />
-      <FlatList 
+      <FlatList style={styles.listContainer}
         data={tasks}
         renderItem={
           (itemData) => {
             return (
-              <Task key={itemData.item.key} title={itemData.item.text} onCheck={removeTask}/>
+              <Task title={itemData.item.text} onCheck={completeTask} />
             )
           }
         }
@@ -51,10 +56,15 @@ const styles = StyleSheet.create({
   appContainer: {
     flex: 1,
     padding: 20, 
-    alignItems: 'center',
+    backgroundColor: '#fefae0'
+  },
+  listContainer: {
+    flex: 1,
+    backgroundColor: '#ff0000'
   },
   addButton: {
     flex: 1, 
     padding: 8,
+    alignSelf: 'center'
   }
 });

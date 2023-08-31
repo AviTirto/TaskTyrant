@@ -11,6 +11,7 @@ const TaskForm = (props) => {
 
     function handlePress(){
         props.onSubmit(enteredText)
+        setEnteredText('')
     }
 
     return (
