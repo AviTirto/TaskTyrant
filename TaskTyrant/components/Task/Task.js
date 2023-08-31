@@ -5,12 +5,12 @@ import styles from './TaskStyles'
 Task = (props) => {
 
     function handleClick(){
-        props.onCheck(props.title)
+        props.onCheck(props.task)
     }
 
     return (
         <View style={styles.taskContainer}>
-            <Text style={styles.title}>{props.title}</Text>
+            <Text style={styles.title}>{props.task.text}</Text>
             <BouncyCheckbox onPress={handleClick}/>
         </View>
     )
