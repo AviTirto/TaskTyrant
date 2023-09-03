@@ -17,9 +17,9 @@ const TaskForm = (props) => {
     return (
         <View>
             <TextInput
-            placeholder='Task Name'
-            onChangeText={handleTextInput}
-            value={enteredText}
+                placeholder='Task Name'
+                onChangeText={handleTextInput}
+                value={enteredText}
             />
             <Button 
             title='->'
