@@ -1,14 +1,10 @@
 import {StyleSheet} from 'react-native';
 const TaskFormStyles = StyleSheet.create({
-    appContainer: {
-      flex: 1,
+    formContainer: {
       padding: 20, 
       alignItems: 'center',
+      flex: 1
     },
-    addButton: {
-      flex: 1, 
-      padding: 8,
-    }
   });
 
 export default TaskFormStyles

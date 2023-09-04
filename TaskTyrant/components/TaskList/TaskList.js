@@ -52,7 +52,7 @@ const TaskList = () => {
           }
         }
       />
-      {openTF && <TaskForm onSubmit={addNewTask}/>}
+      <TaskForm onSubmit={addNewTask} visible={openTF}/>
     </View>
   );
 }

@@ -1,4 +1,4 @@
-import { Button, Text, View, TextInput } from 'react-native';
+import { Button, Modal, View, TextInput } from 'react-native';
 import styles from './TaskFormStyles'
 import { useState } from 'react'
 
@@ -15,17 +15,19 @@ const TaskForm = (props) => {
     }
 
     return (
-        <View>
-            <TextInput
-                placeholder='Task Name'
-                onChangeText={handleTextInput}
-                value={enteredText}
-            />
-            <Button 
-            title='->'
-            onPress={handlePress}
-            />
-        </View>
+        <Modal visible={props.visible} animationType='slide' presentationStyle='pageSheet'>
+            <View style={styles.formContainer}>
+                <TextInput
+                    placeholder='Task Name'
+                    onChangeText={handleTextInput}
+                    value={enteredText}
+                />
+                <Button 
+                    title='->'
+                    onPress={handlePress}
+                />
+            </View>
+        </Modal>
     );
 }
 
