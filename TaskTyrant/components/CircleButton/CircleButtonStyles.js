@@ -5,13 +5,15 @@ const styles = StyleSheet.create({
         backgroundColor: '#f55958',
         alignItems: 'center',
         justifyContent: 'center',
+        height: 50,
+        width: 50,
     },
     innerContainer: {
 
     },
     text: {
         color: 'white',
-        fontSize: 20,
+        fontSize: 30,
         fontWeight: 'bold'
     }
 });

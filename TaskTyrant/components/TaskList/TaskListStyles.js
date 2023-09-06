@@ -8,14 +8,6 @@ const styles = StyleSheet.create({
     listContainer: {
       flex: 1,
     },
-    addButton: {
-      padding: 20,
-      borderRadius: 25,
-      fontWeight: 'bold',
-      position: 'absolute',
-      botton: 0,
-      left: 0,
-    }
 });
 
 export default styles
