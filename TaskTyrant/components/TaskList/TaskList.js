@@ -39,7 +39,6 @@ const TaskList = () => {
 
   return (
     <View style={styles.appContainer}>
-      <Text>TaskTyrant</Text>
       <Button title='+' style={styles.addButton} onPress={toggleTF}/>
       <StatusBar style="auto" />
       <FlatList style={styles.listContainer}
