@@ -3,15 +3,20 @@ import styles from './TaskFormStyles'
 import { useState } from 'react'
 
 const TaskForm = (props) => {
-    const [enteredText, setEnteredText] = useState('')
+    const [titleText, setTitleText] = useState('')
+    const [descriptionText, setDescriptionText] = useState('')
     
-    function handleTextInput(text){
-        setEnteredText(text)
+    function handleTitleInput(text){
+        setTitleText(text)
+    }
+
+    function handleDescriptionInput(text){
+        setDescriptionText(text)
     }
 
     function handlePress(){
-        props.onSubmit(enteredText)
-        setEnteredText('')
+        props.onSubmit(titleText)
+        setTitleText('')
     }
 
     return (
@@ -19,8 +24,13 @@ const TaskForm = (props) => {
             <View style={styles.formContainer}>
                 <TextInput
                     placeholder='Task Name'
-                    onChangeText={handleTextInput}
-                    value={enteredText}
+                    onChangeText={handleTitleInput}
+                    value={titleText}
+                />
+                <TextInput
+                    placeholder='Description'
+                    onChangeText={handleDescriptionInput}
+                    value={descriptionText}
                 />
                 <Button 
                     title='->'
