@@ -10,3 +10,5 @@ const CircleButton = (props) => {
         </View>
     )
 }
+
+export default CircleButton

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import TaskForm from '../TaskForm/TaskForm';
 import Task from '../Task/Task'
 import styles from './TaskListStyles'
+import CircleButton from '../CircleButton/CircleButton'
 
 
 const TaskList = () => {
@@ -39,7 +40,7 @@ const TaskList = () => {
 
   return (
     <View style={styles.appContainer}>
-      <Button title='+' style={styles.addButton} onPress={toggleTF}/>
+      <CircleButton onPress={toggleTF}>+</CircleButton>
       <StatusBar style="auto" />
       <FlatList style={styles.listContainer}
         data={tasks}
