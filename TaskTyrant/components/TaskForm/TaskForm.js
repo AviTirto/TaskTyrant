@@ -15,7 +15,7 @@ const TaskForm = (props) => {
     }
 
     return (
-        <Modal visible={props.visible} animationType='slide' presentationStyle='pageSheet'>
+        <Modal visible={props.visible} animationType='slide'>
             <View style={styles.formContainer}>
                 <TextInput
                     placeholder='Task Name'
