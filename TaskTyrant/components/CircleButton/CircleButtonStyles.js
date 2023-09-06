@@ -3,16 +3,16 @@ const styles = StyleSheet.create({
     outerContainer: {
         borderRadius: 25,
         backgroundColor: '#f55958',
-        width: 20,
-        heigh: 20,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
     },
     innerContainer: {
 
     },
     text: {
-        color: 'white'
+        color: 'white',
+        fontSize: 20,
+        fontWeight: 'bold'
     }
 });
 
