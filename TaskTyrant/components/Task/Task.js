@@ -1,15 +1,16 @@
-import { Text, View } from 'react-native';
+import { Text, View } from "react-native";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
-import styles from './TaskStyles'
+import styles from "./TaskStyles";
 
 Task = (props) => {
+  return (
+    <View style={styles.taskContainer}>
+      <Text style={styles.title}>{props.task.text}</Text>
+      {!props.complete && (
+        <BouncyCheckbox onPress={props.onCheck.bind(this, props.task)} />
+      )}
+    </View>
+  );
+};
 
-    return (
-        <View style={styles.taskContainer}>
-            <Text style={styles.title}>{props.task.text}</Text>
-            <BouncyCheckbox onPress={props.onCheck.bind(this, props.task)}/>
-        </View>
-    )
-}
-
-export default Task
+export default Task;
